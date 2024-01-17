@@ -1,0 +1,19 @@
+.gameBoardContainer {
+  background: linear-gradient(#383624, #282617);
+  border-radius: 6px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  max-width: 45rem;
+  margin: 1rem auto;
+  padding: 2rem;
+  position: relative;
+}
+
+.playersListGroup {
+  align-items: center;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+}

@@ -1,11 +1,7 @@
-import Header from "./components/Header/Herader";
+import TicTacToe from "./components/TicTacToe/TicTacToe";
 
 const App = () => {
-  return (
-    <>
-      <Header />
-    </>
-  );
+  return <TicTacToe />;
 };
 
 export default App;

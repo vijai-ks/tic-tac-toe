@@ -1,0 +1,51 @@
+.playerList {
+  align-items: center;
+  border: 2px solid transparent;
+  display: flex;
+  width: 50%;
+
+  &:active {
+    color: #f6e35a;
+  }
+}
+
+.player {
+  border: 2px solid transparent;
+  border-radius: 4px;
+  font-weight: bold;
+  padding: 0.5rem;
+  width: 10rem;
+}
+
+.playerName {
+  border-radius: 4px;
+  color: #e1dec7;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0.5rem;
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.playerSymbol {
+  color: #e1dec7;
+  font-size: 1rem;
+  margin-left: 1rem;
+}
+
+.playerActionButton {
+  background: none;
+  border: none;
+  color: #c3ba78;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.25rem 0.25rem 0.25rem;
+  text-align: center;
+  transition: color 0.2s;
+  width: 3rem;
+
+  &:hover {
+    color: #f8ca31;
+  }
+}
