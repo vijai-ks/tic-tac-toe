@@ -1,5 +1,11 @@
-function App() {
-  return <h1>React Tic-Tac-Toe</h1>;
-}
+import Header from "./components/Header/Herader";
+
+const App = () => {
+  return (
+    <>
+      <Header />
+    </>
+  );
+};
 
 export default App;

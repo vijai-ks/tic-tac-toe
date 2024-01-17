@@ -1,0 +1,18 @@
+.headerSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.gameLogo {
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
+  margin: 3rem auto 1rem auto;
+  object-fit: contain;
+  width: 8rem;
+}
+
+.heading {
+  color: #3f3b00;
+  font-family: "Caprasimo", cursive;
+  font-size: 3rem;
+  margin: 0 auto 3rem auto;
+}
