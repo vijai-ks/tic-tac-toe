@@ -10,11 +10,13 @@
 }
 
 .player {
+  align-items: center;
   border: 2px solid transparent;
   border-radius: 4px;
+  display: flex;
   font-weight: bold;
   padding: 0.5rem;
-  width: 10rem;
+  width: 15rem;
 }
 
 .playerName {
@@ -26,6 +28,7 @@
   text-transform: uppercase;
   text-overflow: ellipsis;
   text-align: center;
+  width: 10rem;
 }
 
 .playerSymbol {
@@ -48,4 +51,17 @@
   &:hover {
     color: #f8ca31;
   }
+}
+
+.playerNameInput {
+  animation: pulse-text 2s infinite;
+  background-color: #46432f;
+  border: none;
+  color: inherit;
+  font: inherit;
+  font-size: 1rem;
+  padding: 0.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  width: 10rem;
 }

@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import playerStyles from "./Player.module.scss";
 
 interface PlayerProps {
@@ -6,13 +8,34 @@ interface PlayerProps {
 }
 
 const Player = ({ name, symbol }: PlayerProps) => {
+  const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [playerName, setPlayerName] = useState<string>(name);
+  const handleEditButtonClick = () => {
+    setIsEditing((wasEditing) => !wasEditing);
+  };
+
   return (
     <li className={playerStyles.playerList}>
       <span className={playerStyles.player}>
-        <span className={playerStyles.playerName}>{name}</span>
+        {isEditing ? (
+          <input
+            className={playerStyles.playerNameInput}
+            type="text"
+            value={playerName}
+            onChange={(event) => setPlayerName(event.target.value)}
+            required
+          />
+        ) : (
+          <span className={playerStyles.playerName}>{playerName}</span>
+        )}
         <span className={playerStyles.playerSymbol}>{symbol}</span>
       </span>
-      <button className={playerStyles.playerActionButton}>Edit</button>
+      <button
+        className={playerStyles.playerActionButton}
+        onClick={handleEditButtonClick}
+      >
+        {isEditing ? "Save" : "Edit"}
+      </button>
     </li>
   );
 };
