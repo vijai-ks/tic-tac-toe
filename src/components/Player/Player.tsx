@@ -22,11 +22,17 @@ const Player = ({ name, symbol }: PlayerProps) => {
             className={playerStyles.playerNameInput}
             type="text"
             value={playerName}
+            maxLength={15}
             onChange={(event) => setPlayerName(event.target.value)}
             required
           />
         ) : (
-          <span className={playerStyles.playerName}>{playerName}</span>
+          <span
+            className={playerStyles.playerName}
+            onClick={handleEditButtonClick}
+          >
+            {playerName}
+          </span>
         )}
         <span className={playerStyles.playerSymbol}>{symbol}</span>
       </span>
