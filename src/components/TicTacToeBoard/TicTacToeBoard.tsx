@@ -2,13 +2,21 @@ import { useState } from "react";
 
 import ticTacToeBoardStyles from "./TicTacToeBoard.module.scss";
 
+interface TicTacToeBoardProps {
+  onSelectSquare: () => void;
+  activePlayer: string;
+}
+
 const initialBoard = [
   ["", "", ""],
   ["", "", ""],
   ["", "", ""],
 ];
 
-const TicTacToeBoard = () => {
+const TicTacToeBoard = ({
+  onSelectSquare,
+  activePlayer,
+}: TicTacToeBoardProps) => {
   const [gameBoard, setGameBoard] = useState<string[][]>(initialBoard);
 
   const handleSelectSquare = (rowIndex: number, colIndex: number) => {
@@ -16,9 +24,11 @@ const TicTacToeBoard = () => {
       const newGameBoard: string[][] = [
         ...prevBoard.map((innerArray) => [...innerArray]),
       ];
-      newGameBoard[rowIndex][colIndex] = "X";
+      newGameBoard[rowIndex][colIndex] = activePlayer;
       return newGameBoard;
     });
+
+    onSelectSquare();
   };
 
   return (
