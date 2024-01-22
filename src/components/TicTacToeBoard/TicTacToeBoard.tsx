@@ -4,7 +4,7 @@ import ticTacToeBoardStyles from "./TicTacToeBoard.module.scss";
 
 interface TicTacToeBoardProps {
   onSelectSquare: () => void;
-  activePlayer: string;
+  activePlayerSymbol: string;
 }
 
 const initialBoard = [
@@ -15,7 +15,7 @@ const initialBoard = [
 
 const TicTacToeBoard = ({
   onSelectSquare,
-  activePlayer,
+  activePlayerSymbol,
 }: TicTacToeBoardProps) => {
   const [gameBoard, setGameBoard] = useState<string[][]>(initialBoard);
 
@@ -24,7 +24,7 @@ const TicTacToeBoard = ({
       const newGameBoard: string[][] = [
         ...prevBoard.map((innerArray) => [...innerArray]),
       ];
-      newGameBoard[rowIndex][colIndex] = activePlayer;
+      newGameBoard[rowIndex][colIndex] = activePlayerSymbol;
       return newGameBoard;
     });
 

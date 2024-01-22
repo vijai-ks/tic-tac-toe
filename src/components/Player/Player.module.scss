@@ -65,3 +65,13 @@
   text-transform: uppercase;
   width: 10rem;
 }
+
+.active {
+  animation: pulse 2s infinite ease-in-out;
+  border-color: #f6e35a;
+
+  .playerName,
+  .playerSymbol {
+    color: #f6e35a;
+  }
+}

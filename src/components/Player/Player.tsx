@@ -5,9 +5,10 @@ import playerStyles from "./Player.module.scss";
 interface PlayerProps {
   name: string;
   symbol: string;
+  isActive: boolean;
 }
 
-const Player = ({ name, symbol }: PlayerProps) => {
+const Player = ({ name, symbol, isActive }: PlayerProps) => {
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [playerName, setPlayerName] = useState<string>(name);
   const handleEditButtonClick = () => {
@@ -15,7 +16,11 @@ const Player = ({ name, symbol }: PlayerProps) => {
   };
 
   return (
-    <li className={playerStyles.playerList}>
+    <li
+      className={`${playerStyles.playerList} ${
+        isActive ? playerStyles.active : ""
+      }`}
+    >
       <span className={playerStyles.player}>
         {isEditing ? (
           <input

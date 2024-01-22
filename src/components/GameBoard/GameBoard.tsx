@@ -15,13 +15,23 @@ const GameBoard = () => {
 
   return (
     <main className={gameBoardStyles.gameBoardContainer}>
-      <ol className={gameBoardStyles.playersListGroup}>
-        <Player name={"Player 1"} symbol={"X"} />
-        <Player name={"Player 2"} symbol={"O"} />
+      <ol
+        className={`${gameBoardStyles.playersListGroup} ${gameBoardStyles.highlightPlayer}`}
+      >
+        <Player
+          name={"Player 1"}
+          symbol={"X"}
+          isActive={Boolean(activePlayer === "X")}
+        />
+        <Player
+          name={"Player 2"}
+          symbol={"O"}
+          isActive={Boolean(activePlayer === "O")}
+        />
       </ol>
       <TicTacToeBoard
         onSelectSquare={handleSelectSquare}
-        activePlayer={activePlayer}
+        activePlayerSymbol={activePlayer}
       />
     </main>
   );

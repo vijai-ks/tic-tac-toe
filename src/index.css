@@ -28,16 +28,6 @@ body {
   min-height: 110rem;
 }
 
-#players.highlight-player li.active {
-  border-color: #f6e35a;
-  animation: pulse 2s infinite ease-in-out;
-}
-
-#players.highlight-player li.active .player-name,
-#players.highlight-player li.active .player-symbol {
-  color: #f6e35a;
-}
-
 #pre-game {
   text-align: center;
 }
