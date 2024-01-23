@@ -1,18 +1,18 @@
-import { useState } from "react";
-
 import Player from "../Player/Player";
 import TicTacToeBoard from "../TicTacToeBoard/TicTacToeBoard";
 import gameBoardStyles from "./GameBoard.module.scss";
 
-const GameBoard = () => {
-  const [activePlayer, setActivePlayer] = useState<string>("X");
+interface GameBoardProps {
+  handleSelectSquare: (row: number, col: number) => void;
+  turns: { square: { row: number; col: number }; player: string }[] | [];
+  activePlayer: string;
+}
 
-  const handleSelectSquare = () => {
-    setActivePlayer((currentActivePlayer: string) =>
-      currentActivePlayer === "X" ? "O" : "X"
-    );
-  };
-
+const GameBoard = ({
+  handleSelectSquare,
+  turns,
+  activePlayer,
+}: GameBoardProps) => {
   return (
     <main className={gameBoardStyles.gameBoardContainer}>
       <ol
@@ -29,10 +29,7 @@ const GameBoard = () => {
           isActive={Boolean(activePlayer === "O")}
         />
       </ol>
-      <TicTacToeBoard
-        onSelectSquare={handleSelectSquare}
-        activePlayerSymbol={activePlayer}
-      />
+      <TicTacToeBoard onSelectSquare={handleSelectSquare} turns={turns} />
     </main>
   );
 };

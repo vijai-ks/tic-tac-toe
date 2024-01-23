@@ -1,10 +1,8 @@
-import { useState } from "react";
-
 import ticTacToeBoardStyles from "./TicTacToeBoard.module.scss";
 
 interface TicTacToeBoardProps {
-  onSelectSquare: () => void;
-  activePlayerSymbol: string;
+  onSelectSquare: (row: number, col: number) => void;
+  turns: { square: { row: number; col: number }; player: string }[];
 }
 
 const initialBoard = [
@@ -13,23 +11,15 @@ const initialBoard = [
   ["", "", ""],
 ];
 
-const TicTacToeBoard = ({
-  onSelectSquare,
-  activePlayerSymbol,
-}: TicTacToeBoardProps) => {
-  const [gameBoard, setGameBoard] = useState<string[][]>(initialBoard);
+const TicTacToeBoard = ({ onSelectSquare, turns }: TicTacToeBoardProps) => {
+  const gameBoard = initialBoard;
 
-  const handleSelectSquare = (rowIndex: number, colIndex: number) => {
-    setGameBoard((prevBoard) => {
-      const newGameBoard: string[][] = [
-        ...prevBoard.map((innerArray) => [...innerArray]),
-      ];
-      newGameBoard[rowIndex][colIndex] = activePlayerSymbol;
-      return newGameBoard;
-    });
+  for (const turn of turns) {
+    const { square, player } = turn;
+    const { row, col } = square;
 
-    onSelectSquare();
-  };
+    gameBoard[row][col] = player;
+  }
 
   return (
     <ol className={ticTacToeBoardStyles.gameBoard}>
@@ -40,7 +30,7 @@ const TicTacToeBoard = ({
               <li key={colIndex}>
                 <button
                   className={ticTacToeBoardStyles.playerButton}
-                  onClick={() => handleSelectSquare(index, colIndex)}
+                  onClick={() => onSelectSquare(index, colIndex)}
                 >
                   {playerSymbol}
                 </button>
