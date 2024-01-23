@@ -31,6 +31,7 @@ const TicTacToeBoard = ({ onSelectSquare, turns }: TicTacToeBoardProps) => {
                 <button
                   className={ticTacToeBoardStyles.playerButton}
                   onClick={() => onSelectSquare(index, colIndex)}
+                  disabled={playerSymbol !== ""}
                 >
                   {playerSymbol}
                 </button>
