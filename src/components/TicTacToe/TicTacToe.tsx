@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import GameBoard from "../GameBoard/GameBoard";
+import GameLog from "../GameLog/GameLog";
 import Header from "../Header/Header";
 import ticTacToeStyles from "./TicTacToe.module.scss";
 
@@ -41,6 +42,7 @@ const TicTacToe = () => {
         activePlayer={activePlayer}
         turns={gameTurns}
       />
+      <GameLog turns={gameTurns} />
     </section>
   );
 };
