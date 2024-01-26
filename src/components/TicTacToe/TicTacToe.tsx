@@ -5,22 +5,28 @@ import GameLog from "../GameLog/GameLog";
 import Header from "../Header/Header";
 import ticTacToeStyles from "./TicTacToe.module.scss";
 
+interface gameTurns {
+  square: { row: number; col: number };
+  player: string;
+}
+
 const TicTacToe = () => {
-  const [activePlayer, setActivePlayer] = useState<string>("X");
-  const [gameTurns, setGameTurns] = useState<
-    { square: { row: number; col: number }; player: string }[] | []
-  >([]);
+  const [gameTurns, setGameTurns] = useState<gameTurns[]>([]);
+
+  const deriveActivePlayer = (gameTurns: gameTurns[]) => {
+    let currentPlayer = "X";
+
+    if (gameTurns.length > 0 && gameTurns[0].player === "X") {
+      currentPlayer = "O";
+    }
+    return currentPlayer;
+  };
+
+  const activePlayer = deriveActivePlayer(gameTurns);
 
   const handleSelectSquare = (rowIndex: number, colIndex: number) => {
-    setActivePlayer((currentActivePlayer) =>
-      currentActivePlayer === "X" ? "O" : "X"
-    );
     setGameTurns((prevTurns) => {
-      let currentPlayer = "X";
-
-      if (prevTurns.length > 0 && prevTurns[0].player === "X") {
-        currentPlayer = "O";
-      }
+      const currentPlayer = deriveActivePlayer(prevTurns);
 
       const updatedSquares = [
         {
