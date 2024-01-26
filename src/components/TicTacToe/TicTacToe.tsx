@@ -5,6 +5,7 @@ import GameLog from "../GameLog/GameLog";
 import Header from "../Header/Header";
 import ticTacToeStyles from "./TicTacToe.module.scss";
 import { WINNING_COMBINATIONS } from "../../constants/constants";
+import WinnerBoard from "../WinnerBoard/WinnerBoard";
 
 interface gameTurns {
   square: { row: number; col: number };
@@ -31,7 +32,7 @@ const TicTacToe = () => {
 
   const activePlayer = deriveActivePlayer(gameTurns);
 
-  const gameBoard = initialBoard;
+  const gameBoard = [...initialBoard.map((array) => [...array])];
 
   for (const turn of gameTurns) {
     const { square, player } = turn;
@@ -76,16 +77,27 @@ const TicTacToe = () => {
     });
   };
 
+  const hasDraw = gameTurns.length === 9 && !winner;
+
+  const handleRestart = () => {
+    setGameTurns([]);
+  };
+
   return (
     <section className={ticTacToeStyles.mainContainer}>
       <Header />
-      <p>You won {winner}</p>
-      <GameBoard
-        handleSelectSquare={handleSelectSquare}
-        activePlayer={activePlayer}
-        board={gameBoard}
-      />
-      <GameLog turns={gameTurns} />
+      {winner || hasDraw ? (
+        <WinnerBoard winner={winner} handleRestart={handleRestart} />
+      ) : (
+        <>
+          <GameBoard
+            handleSelectSquare={handleSelectSquare}
+            activePlayer={activePlayer}
+            board={gameBoard}
+          />
+          <GameLog turns={gameTurns} />
+        </>
+      )}
     </section>
   );
 };
