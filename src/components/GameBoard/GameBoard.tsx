@@ -4,13 +4,13 @@ import gameBoardStyles from "./GameBoard.module.scss";
 
 interface GameBoardProps {
   handleSelectSquare: (row: number, col: number) => void;
-  turns: { square: { row: number; col: number }; player: string }[] | [];
+  board: string[][];
   activePlayer: string;
 }
 
 const GameBoard = ({
   handleSelectSquare,
-  turns,
+  board,
   activePlayer,
 }: GameBoardProps) => {
   return (
@@ -29,7 +29,7 @@ const GameBoard = ({
           isActive={Boolean(activePlayer === "O")}
         />
       </ol>
-      <TicTacToeBoard onSelectSquare={handleSelectSquare} turns={turns} />
+      <TicTacToeBoard onSelectSquare={handleSelectSquare} board={board} />
     </main>
   );
 };
