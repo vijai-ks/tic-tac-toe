@@ -1,30 +1,53 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Tic-Tac-Toe Multi Player Game 🎲✗0️
 
-Currently, two official plugins are available:
+This is a single page react application which has a multi player game tic tac toe.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+It also has a winner page that shows the winner and has restart game button.
+ 
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Authors
 
-- Configure the top-level `parserOptions` property like this:
+- [@vijai-ks](https://www.github.com/vijai-ks)
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## 🚀 About Me
+I'm a full stack developer. Currently working on React Projects and building my profile.
+
+
+
+
+## Features
+
+- Multi Player
+
+
+## Documentation
+
+## Screens
+- Home Screen
+- Winner Screen
+
+### Features Implemented:
+- Used React + TypeScript language.
+- Used useState for State.
+- User can edit their name.
+- Log also printed as user plays game
+## Screenshots
+
+#### Tic Tac Toe Home Page
+![Home Page](https://github.com/vijai-ks/tic-tac-toe/assets/68953743/4b58f665-6fcf-4216-87c3-91f26d89e54a)
+
+![Home Page](https://github.com/vijai-ks/tic-tac-toe/assets/68953743/150e0ef3-f5a3-446f-8a70-85cf345e1998)
+
+#### Winning Page
+![Winning Page](https://github.com/vijai-ks/tic-tac-toe/assets/68953743/44aed3e8-9200-40bd-8756-8a6ebb112fbe)
+
+
+
+## Tech Stack
+
+**Client:** React JS
+
+
