@@ -29,11 +29,19 @@ I'm a full stack developer. Currently working on React Projects and building my 
 - Home Screen
 - Winner Screen
 
+## Installation
+- This Application is created using Vite.
+- To run the application, first clone the repo
+- Then install node packages using ```npm i``` command.
+- Then run the application using ```npm run dev``` command.
+
 ### Features Implemented:
 - Used React + TypeScript language.
 - Used useState for State.
 - User can edit their name.
 - Log also printed as user plays game
+- Used Confetti for winning screem
+
 ## Screenshots
 
 #### Tic Tac Toe Home Page
