@@ -1,10 +1,11 @@
 import gameLogStyles from "./GameLog.module.scss";
 
 interface GameLogProps {
-  turns: { square: { row: number; col: number }; player: string }[] | [];
+  turns: { square: { row: number; col: number }; player: string }[];
+  players: { [key: string]: string; O: string };
 }
 
-const GameLog = ({ turns }: GameLogProps) => {
+const GameLog = ({ turns, players }: GameLogProps) => {
   return (
     <ol className={gameLogStyles.gameLog}>
       {turns.map((turn) => (
@@ -12,7 +13,7 @@ const GameLog = ({ turns }: GameLogProps) => {
           key={`${turn.square.row}${turn.square.col}`}
           className={gameLogStyles.list}
         >
-          {turn.player} selected {turn.square.row}, {turn.square.col}
+          {players[turn.player]} selected {turn.square.row}, {turn.square.col}
         </li>
       ))}
     </ol>

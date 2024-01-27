@@ -105,7 +105,7 @@ const TicTacToe = () => {
             players={players}
             onPlayerNameChange={handlePlayerNameChange}
           />
-          <GameLog turns={gameTurns} />
+          <GameLog turns={gameTurns} players={players} />
         </>
       )}
     </section>
