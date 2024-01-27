@@ -1,4 +1,6 @@
 import { useState } from "react";
+import useWindowSize from "react-use/lib/useWindowSize";
+import Confetti from "react-confetti";
 
 import GameBoard from "../GameBoard/GameBoard";
 import GameLog from "../GameLog/GameLog";
@@ -17,6 +19,7 @@ interface gameTurns {
 }
 
 const TicTacToe = () => {
+  const { width, height } = useWindowSize();
   const [gameTurns, setGameTurns] = useState<gameTurns[]>([]);
   const [players, setPlayers] = useState<{ X: string; O: string }>(PLAYERS);
 
@@ -108,6 +111,7 @@ const TicTacToe = () => {
           <GameLog turns={gameTurns} players={players} />
         </>
       )}
+      {winner && <Confetti width={width} height={height-50} />}
     </section>
   );
 };
