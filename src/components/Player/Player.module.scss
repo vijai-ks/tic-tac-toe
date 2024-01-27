@@ -1,0 +1,77 @@
+.playerList {
+  align-items: center;
+  border: 2px solid transparent;
+  display: flex;
+  width: 50%;
+
+  &:active {
+    color: #f6e35a;
+  }
+}
+
+.player {
+  align-items: center;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  display: flex;
+  font-weight: bold;
+  padding: 0.5rem;
+  width: 15rem;
+}
+
+.playerName {
+  border-radius: 4px;
+  color: #e1dec7;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0.5rem;
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+  text-align: center;
+  width: 10rem;
+}
+
+.playerSymbol {
+  color: #e1dec7;
+  font-size: 1rem;
+  margin-left: 1rem;
+}
+
+.playerActionButton {
+  background: none;
+  border: none;
+  color: #c3ba78;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.25rem 0.25rem 0.25rem;
+  text-align: center;
+  transition: color 0.2s;
+  width: 3rem;
+
+  &:hover {
+    color: #f8ca31;
+  }
+}
+
+.playerNameInput {
+  animation: pulse-text 2s infinite;
+  background-color: #46432f;
+  border: none;
+  color: inherit;
+  font: inherit;
+  font-size: 1rem;
+  padding: 0.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  width: 10rem;
+}
+
+.active {
+  animation: pulse 2s infinite ease-in-out;
+  border-color: #f6e35a;
+
+  .playerName,
+  .playerSymbol {
+    color: #f6e35a;
+  }
+}

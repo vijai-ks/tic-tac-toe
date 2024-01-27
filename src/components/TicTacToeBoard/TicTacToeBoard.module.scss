@@ -1,0 +1,32 @@
+.gameBoard {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 2rem;
+  list-style: none;
+  justify-content: center;
+  margin: 3rem 0;
+  padding: 0;
+}
+
+.gameBoardRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.playerButton {
+  background: #aca788;
+  border: none;
+  color: #3f3b00;
+  cursor: pointer;
+  font-family: "Caprasimo", cursive;
+  font-size: 5rem;
+  height: 8rem;
+  padding: 1rem;
+  width: 8rem;
+}
