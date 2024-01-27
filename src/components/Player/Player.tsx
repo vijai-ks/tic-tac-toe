@@ -6,13 +6,23 @@ interface PlayerProps {
   name: string;
   symbol: string;
   isActive: boolean;
+  onPlayerNameChange: (symbol: string, player: string) => void;
 }
 
-const Player = ({ name, symbol, isActive }: PlayerProps) => {
+const Player = ({
+  name,
+  symbol,
+  isActive,
+  onPlayerNameChange,
+}: PlayerProps) => {
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [playerName, setPlayerName] = useState<string>(name);
   const handleEditButtonClick = () => {
     setIsEditing((wasEditing) => !wasEditing);
+
+    if (isEditing) {
+      onPlayerNameChange(symbol, playerName);
+    }
   };
 
   return (

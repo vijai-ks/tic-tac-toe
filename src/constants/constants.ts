@@ -40,3 +40,14 @@ export const WINNING_COMBINATIONS = [
       { row: 2, column: 0 },
     ],
   ];
+
+  export const INITIAL_BOARD = [
+    ["", "", ""],
+    ["", "", ""],
+    ["", "", ""],
+  ];
+
+  export const PLAYERS = {
+    X: "Player 1",
+    O: "Player 2",
+  }

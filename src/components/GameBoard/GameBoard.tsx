@@ -6,12 +6,16 @@ interface GameBoardProps {
   handleSelectSquare: (row: number, col: number) => void;
   board: string[][];
   activePlayer: string;
+  players: { X: string; O: string };
+  onPlayerNameChange: (symbol: string, player: string) => void;
 }
 
 const GameBoard = ({
   handleSelectSquare,
   board,
   activePlayer,
+  players,
+  onPlayerNameChange,
 }: GameBoardProps) => {
   return (
     <main className={gameBoardStyles.gameBoardContainer}>
@@ -19,14 +23,16 @@ const GameBoard = ({
         className={`${gameBoardStyles.playersListGroup} ${gameBoardStyles.highlightPlayer}`}
       >
         <Player
-          name={"Player 1"}
+          name={players.X}
           symbol={"X"}
           isActive={Boolean(activePlayer === "X")}
+          onPlayerNameChange={onPlayerNameChange}
         />
         <Player
-          name={"Player 2"}
+          name={players.O}
           symbol={"O"}
           isActive={Boolean(activePlayer === "O")}
+          onPlayerNameChange={onPlayerNameChange}
         />
       </ol>
       <TicTacToeBoard onSelectSquare={handleSelectSquare} board={board} />

@@ -4,7 +4,11 @@ import GameBoard from "../GameBoard/GameBoard";
 import GameLog from "../GameLog/GameLog";
 import Header from "../Header/Header";
 import ticTacToeStyles from "./TicTacToe.module.scss";
-import { WINNING_COMBINATIONS } from "../../constants/constants";
+import {
+  WINNING_COMBINATIONS,
+  INITIAL_BOARD,
+  PLAYERS,
+} from "../../constants/constants";
 import WinnerBoard from "../WinnerBoard/WinnerBoard";
 
 interface gameTurns {
@@ -12,14 +16,9 @@ interface gameTurns {
   player: string;
 }
 
-const initialBoard = [
-  ["", "", ""],
-  ["", "", ""],
-  ["", "", ""],
-];
-
 const TicTacToe = () => {
   const [gameTurns, setGameTurns] = useState<gameTurns[]>([]);
+  const [players, setPlayers] = useState<{ X: string; O: string }>(PLAYERS);
 
   const deriveActivePlayer = (gameTurns: gameTurns[]) => {
     let currentPlayer = "X";
@@ -32,7 +31,7 @@ const TicTacToe = () => {
 
   const activePlayer = deriveActivePlayer(gameTurns);
 
-  const gameBoard = [...initialBoard.map((array) => [...array])];
+  const gameBoard = [...INITIAL_BOARD.map((array) => [...array])];
 
   for (const turn of gameTurns) {
     const { square, player } = turn;
@@ -56,7 +55,7 @@ const TicTacToe = () => {
         firstSquareSymbol === secondSquareSymbol &&
         secondSquareSymbol === thirdSquareSymbol
       ) {
-        winner = firstSquareSymbol;
+        winner = players[firstSquareSymbol];
       }
     }
   }
@@ -83,6 +82,15 @@ const TicTacToe = () => {
     setGameTurns([]);
   };
 
+  const handlePlayerNameChange = (symbol: string, playerName: string) => {
+    setPlayers((players) => {
+      return {
+        ...players,
+        [symbol]: playerName,
+      };
+    });
+  };
+
   return (
     <section className={ticTacToeStyles.mainContainer}>
       <Header />
@@ -94,6 +102,8 @@ const TicTacToe = () => {
             handleSelectSquare={handleSelectSquare}
             activePlayer={activePlayer}
             board={gameBoard}
+            players={players}
+            onPlayerNameChange={handlePlayerNameChange}
           />
           <GameLog turns={gameTurns} />
         </>
